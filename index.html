@@ -32,8 +32,7 @@
 
         body {
             color: var(--color) !important;
-            background-color: whitesmoke;
-
+            background-image: linear-gradient(to top, wheat 0%,white  100%);
         }
 
         :root {
@@ -43,8 +42,10 @@
             --color4: white;
         }
 
-        .container {
+        .container,.QuestionSection, .introSection,img{
             padding: 0px;
+            border-radius: 13px !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.116);
         }
 
         .QuestionSection,
@@ -56,10 +57,9 @@
 
         /* <!----------------------------------- Intro Section  -----------------------------------> */
         .introSection {
-            background-color: var(--color2);
+            background-color: var(--color);
             color: white;
             font-size: 18px;
-            font-size: 20px;
         }
 
         .introClass h3 {
@@ -73,39 +73,43 @@
         }
 
         .question {
-            color: var(--color2);
             font-weight: bold;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <!----------------------------------- Intro Section  ----------------------------------->
+<body class="p-1">
+    <div class="container mt-2">
+        <img src="https://images.unsplash.com/photo-1542866263-77e2cdc46889?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJsdWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" class="col-12" height="150">
+    </div>
+
+
+
+    <!----------------------------------- Intro Section  ----------------------------------->
+    <div class="container  mt-2">
         <div class="introSection p-4">
-            <div class="row bg-light introClass rounded">
-                <h3>Student Details</h3>
+            <div class="row resultClass mb-1">
+                <h2>Result</h2>
             </div>
             <div class="row d-flex flex-column">
-                <span>Name:Mr. Roshan Kasurde</span>
-                <span>Mobile Number:9896784652</span>
-                <span>Email Address:wobalin45332@gmail.com</span>
-                <span>Department:B.tech</span>
+                <span>Name : Mr. Roshan Kasurde</span>
+                <span>Mobile Number : 9896784652</span>
+                <span>Email Address : wobalin45332@gmail.com</span>
+                <span>Department : B.tech</span>
             </div>
         </div>
+    </div>
 
-        <!----------------------------------- Question Section  ----------------------------------->
+    <!----------------------------------- Question Section  ----------------------------------->
+    <div class="container mt-2 mb-2 bg-light">
         <div class="QuestionSection p-4">
-            <div class="row bg-light resultClass mb-3">
-                <h3>Result</h3>
-            </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-bottom border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-success">Answered</span>
+                    <span >Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>
@@ -121,7 +125,7 @@
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-success">Answered</span>
+                    <span >Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>
@@ -137,7 +141,7 @@
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-success">Answered</span>
+                    <span >Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>
@@ -153,7 +157,7 @@
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-danger">Not Answered</span>
+                    <span>Not Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>
@@ -169,7 +173,7 @@
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-success">Answered</span>
+                    <span >Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>
@@ -179,13 +183,13 @@
                         : +03</span>
                 </div>
             </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
                 </div>
                 <div class="answers d-flex flex-column">
-                    <span class="text-danger">Not Answered</span>
+                    <span>Not Answered</span>
                     <span>Correct Answer : Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius itaque ut, eos
                         laboriosam architecto voluptatibus modi labore harum molestias minus</span>
                 </div>

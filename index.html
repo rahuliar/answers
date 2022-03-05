@@ -14,7 +14,6 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- logo  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!--
         
 
@@ -26,13 +25,14 @@
     -->
     <style>
         * {
-            padding: 0px;
             margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-size: 'Poppins', sans-serif;
         }
 
         body {
             color: var(--color) !important;
-            background-image: linear-gradient(to top, wheat 0%,white  100%);
         }
 
         :root {
@@ -41,24 +41,8 @@
             --color3: #ffb900;
             --color4: white;
         }
-
-        .container,.QuestionSection, .introSection,img{
-            padding: 0px;
-            border-radius: 13px !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.116);
-        }
-
-        .QuestionSection,
-        .introClass,
-        .introSection,
-        .resultClass {
-            border: 2px solid var(--color);
-        }
-
         /* <!----------------------------------- Intro Section  -----------------------------------> */
         .introSection {
-            background-color: var(--color);
-            color: white;
             font-size: 18px;
         }
 
@@ -75,35 +59,77 @@
         .question {
             font-weight: bold;
         }
+        .resultclose-btn {
+            position: absolute;
+            height: 40px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 40px;
+        }
+
+        #popupresult {
+            position: relative;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, 5%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.116);
+            background-color: white;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .resultpopup-btn {
+            background-color: #ff5f00;
+            border: 0.5px solid #ff5f00;
+        }
+
+        .resultpopup-btn:hover {
+            border: 0.5px solid black;
+        }
+
+        #popupresult.active{
+            visibility: visible;
+            opacity: 1;
+            transition: 0.5s;
+        }
     </style>
 </head>
 
 <body class="p-1">
-    <div class="container mt-2">
-        <img src="https://images.unsplash.com/photo-1542866263-77e2cdc46889?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGJsdWV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="" class="col-12" height="150">
-    </div>
-
-
-
-    <!----------------------------------- Intro Section  ----------------------------------->
-    <div class="container  mt-2">
-        <div class="introSection p-4">
-            <div class="row resultClass mb-1">
-                <h2>Result</h2>
-            </div>
-            <div class="row d-flex flex-column">
-                <span>Name : Mr. Roshan Kasurde</span>
-                <span>Mobile Number : 9896784652</span>
-                <span>Email Address : wobalin45332@gmail.com</span>
-                <span>Department : B.tech</span>
-            </div>
+    <div class="container d-flex justify-content-center align-items-center p-2" id="resultblur">
+        <div class="content">
+            <p>Click 'click here for pop up window'.</p>
+            <button class="resultpopup-btn text-dark p-2" onclick="toggle1()">Cliclk Here for result</button>
         </div>
     </div>
-
-    <!----------------------------------- Question Section  ----------------------------------->
-    <div class="container mt-2 mb-2 bg-light">
+    <div id="popupresult" class="col-11 col-md-8 p-2">
+        <div class="resultclose-btn" onclick="toggle1()">&times;</div>
+        <!----------------------------------- Intro Section  ----------------------------------->
+        <div class="container  mt-2">
+            <div class="introSection p-4">
+                <div class="row resultClass mb-1">
+                    <h2>Result</h2>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row d-flex flex-column">
+                            <span>Name : Mr. Roshan Kasurde</span>
+                            <span>Mobile Number : 9896784652</span>
+                            <span>Email Address : wobalin45332@gmail.com</span>
+                            <span>Department : B.tech</span>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end">
+                        <img src="data:image/jpeg;base64,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" alt="" height="100" width="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!----------------------------------- Question Section  ----------------------------------->
+    <div class="container mt-2 mb-2">
         <div class="QuestionSection p-4">
-            <div class="row d-flex flex-column questions border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top  border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
@@ -119,7 +145,7 @@
                         : +03</span>
                 </div>
             </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top  border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
@@ -135,7 +161,7 @@
                         : -03</span>
                 </div>
             </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top  border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
@@ -151,7 +177,7 @@
                         : -03</span>
                 </div>
             </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top  border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
@@ -167,7 +193,7 @@
                         - 00</span>
                 </div>
             </div>
-            <div class="row d-flex flex-column questions border-top border-bottom border-dark p-2 p-lg-3">
+            <div class="row d-flex flex-column questions border-top  border-dark p-2 p-lg-3">
                 <div class="question">
                     <h5 class="d-inline">What is Volatility of the Stock Market </h5><span>(5 Marks)-(Negative marking
                         3)</span>
@@ -201,7 +227,15 @@
             </div>
         </div>
     </div>
+    </div>
 
+   
+ <script type="text/javascript">
+      function toggle1() {
+            let popup = document.getElementById('popupresult');
+            popup.classList.toggle('active');
+        }
+ </script>
 </body>
 
 </html>
